@@ -1,0 +1,24 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build lib",
+			"type": "cargo",
+			"command": "build"
+		},
+		{
+			"label": "Copy lib",
+			"type": "shell",
+			"command": "cp target/debug/rusty_audio.dll rusty_audio.dll",
+			"dependsOn": "Build lib"
+		},
+		{
+			"label": "Build cpp",
+			"type": "shell",
+			"command": "clang++ -g main.cpp -o main.exe -l target/debug/rusty_audio.dll",
+			"dependsOn": "Copy lib"
+		}
+	]
+}

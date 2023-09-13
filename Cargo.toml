@@ -1,0 +1,11 @@
+[package]
+name = "rusty_audio"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rusty_audio"
+crate-type = ["cdylib"] 
+
+[dependencies]
+rodio = "0.17.1"
